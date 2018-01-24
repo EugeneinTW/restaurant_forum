@@ -19,8 +19,11 @@ category_list =[
 
 category_list.each do |category|
   Category.create( name: category[:name] )
+image: File.open(File.join(Rails.root, "/seed_img/#{rand(0…7)}.jpg”))
 end
 puts "Category created!"
+
+
 
 # Default admin
 
