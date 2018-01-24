@@ -1,5 +1,5 @@
 class Admin::CategoriesController < ApplicationController
-  before_action :authenticate_user!
+  
   before_action :authenticate_admin
   before_action :set_category, only:  [:update, :destroy]
 
@@ -26,7 +26,7 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def update
-     
+
 
     if @category.update(category_params)
       redirect_to admin_categories_path
