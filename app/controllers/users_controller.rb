@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @commented_restaurants = @user.restaurants.uniq
+    @user = User.find(params[:id])
   end
 
   def edit
@@ -23,6 +24,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :intro, :avatar)
+    params.require(:user).permit(:name, :intro)
   end
 end
