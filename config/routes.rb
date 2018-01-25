@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :restaurants, only: [:index, :show] do
       resources :comments, only: [:create, :destroy]
 
+
       # 瀏覽所有餐廳的最新動態
       collection do
         get :feeds
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
         get :dashboard
       end
     end
-
+resources :users, only: [:show, :edit, :update]
 resources :categories, only: :show
 root "restaurants#index"   #請加入這行程式碼
 namespace :admin do

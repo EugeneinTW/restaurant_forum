@@ -1,7 +1,15 @@
 # frozen_string_literal: true
+class AddAttributesToUsers < ActiveRecord::Migration[5.1]
+  def change
+
+  end
+end
 
 class DeviseCreateUsers < ActiveRecord::Migration[5.1]
   def change
+    add_column :users, :name, :string
+    add_column :users, :intro, :text
+    add_column :users, :avatar, :string # 用來掛載 CarrierWave 的 Uploader
     create_table :users do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
