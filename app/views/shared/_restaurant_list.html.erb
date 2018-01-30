@@ -1,3 +1,4 @@
+
 <!-- restaurants list，有多寫restaurant-item的class style -->
  <% @restaurants.each do |restaurant| %>
    <div class="col-sm-6 col-md-4">
@@ -7,6 +8,7 @@
          <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
          <p class="label label-default"><%= restaurant.category.name %><p>
          <p><%= truncate(restaurant.description, length: 80) %></p>
+         <%= render partial: "shared/favorite", locals: {restaurant: restaurant} %>
        </div>
      </div>
    </div>
