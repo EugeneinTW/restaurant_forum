@@ -16,11 +16,13 @@ Rails.application.routes.draw do
         get :dashboard
         post :favorite
         post :unfavorite
+      end
+      member do
         post :like
         post :unlike
       end
     end
-    
+
 resources :users, only: [:show, :edit, :update]
 resources :categories, only: :show
 root "restaurants#index"   #請加入這行程式碼

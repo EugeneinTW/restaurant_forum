@@ -12,9 +12,13 @@ class Restaurant < ApplicationRecord
 
   # 「使用者like很多餐廳」的多對多關聯
   has_many :likes, dependent: :destroy
-  has_many :liked_users, through: :favorites, source: :user
+  has_many :liked_users, through: :likes, source: :user
 
   def is_favorited?(user)
     self.favorited_users.include?(user)
+  end
+
+  def is_liked?(user)
+    self.liked_users.include?(user)
   end
 end
