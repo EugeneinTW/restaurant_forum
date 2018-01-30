@@ -22,9 +22,12 @@ Rails.application.routes.draw do
         post :unlike
       end
     end
+    # 將 :index 加入開放項目
+    resources :users, only: [:index, :show, :edit, :update]
 
-resources :users, only: [:show, :edit, :update]
 resources :categories, only: :show
+resources :followships, only: [:create, :destroy]
+
 root "restaurants#index"   #請加入這行程式碼
 namespace :admin do
     root "restaurants#index"
